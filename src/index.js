@@ -1,9 +1,10 @@
-console.log('index.js is running!');
+// console.log('index.js is running!');
+const buildMarker = require('./marker');
 
 const mapboxgl = require('mapbox-gl');
 
 mapboxgl.accessToken =
-  'pk.eyJ1IjoiY2hhcmx5bm1hbnV5YWciLCJhIjoiY2p0NGp0cWEzMGQxeDRhcGgwMDM2cDF0ayJ9.5olSGs4LadDBrVcLJigCUA';
+  'pk.eyJ1IjoiYWxsaWVmcmVuY2giLCJhIjoiY2p0NGp0eGwwMTV3MTQ0cGhkdmZwem41ciJ9.UjaeeOO_TtrZTI9tYVi0Og';
 
 const map = new mapboxgl.Map({
   container: 'map',
@@ -11,3 +12,14 @@ const map = new mapboxgl.Map({
   zoom: 12, // starting zoom
   style: 'mapbox://styles/mapbox/streets-v10', // mapbox has lots of different map styles available.
 });
+
+// const buildMarker = function (type, coordinates) {
+//   console.log('build marker is running')
+//   const marker = document.createElement("div")
+//   marker.className = type
+//   new mapboxgl.Marker(marker).setLngLat(coordinates).addTo(map);
+//   console.log('build marker is done')
+// }
+
+const marker = buildMarker('hotel', [-74.009, 40.705]);
+marker.addTo(map);
